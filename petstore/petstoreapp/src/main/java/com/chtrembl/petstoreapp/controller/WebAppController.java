@@ -267,6 +267,7 @@ public class WebAppController {
 		pageViewTelemetry.setUrl(new URI(request.getRequestURL().toString()));
 		pageViewTelemetry.setName("slow operation");
 
+		//test
 		// 30s delay
 		Thread.sleep(30000);
 
