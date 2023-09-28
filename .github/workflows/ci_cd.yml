@@ -23,7 +23,7 @@ jobs:
 
       - name: Run Maven build
         run: |
-          mvn --batch-mode --update-snapshots verify
+          mvn -f ./petstore/petstoreapp --batch-mode --update-snapshots verify
 
       - name: Upload Maven build artifact
         uses: actions/upload-artifact@v3
