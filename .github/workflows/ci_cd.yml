@@ -3,7 +3,7 @@ name: CI/CD to Azure Container Registry
 env:
   AZURE_CONTAINER_REGISTRY: petregistry.azurecr.io
   AZURE_CONTAINER_REGISTRY_USERNAME: petregistry
-  IMAGE_NAME: petstore
+  IMAGE_NAME: petstoreapp
 
 on:
   push:
@@ -42,6 +42,6 @@ jobs:
 
       - name: Build and push Docker image to Azure Container Registry
         run: |
-          docker build . -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest -t ${{env.AZURE_CONTAINER_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ github.sha }}
+          docker build ./petstore/petstoreapp -t ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest -t ${{env.AZURE_CONTAINER_REGISTRY}}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:${{ github.sha }}
           docker push ${{ env.AZURE_CONTAINER_REGISTRY }}/${{ env.IMAGE_NAME }}:latest
