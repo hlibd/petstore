@@ -5,9 +5,7 @@ env:
   AZURE_CONTAINER_REGISTRY_USERNAME: petregistry
   IMAGE_NAME: petstoreapp
 
-on:
-  push:
-    branches: [ "master" ]
+on: [push]
 
 jobs:
   build:
